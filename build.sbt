@@ -4,6 +4,20 @@ crossScalaVersions := Seq("2.11.8", "2.10.6", "2.12.0")
 
 resolvers in ThisBuild += Resolver.sonatypeRepo("releases")
 
+/*************
+  * Publish locally at uwaterloo
+  */
+
+val keyFile: File = Path.userHome / ".ssh" / "oat_rsa"
+
+val publishMavenStyle = true
+
+publishTo in ThisBuild := Some(Resolver.ssh("OAT Lib", "cs.uwaterloo.ca", "/u1/cs-oat/public_html/maven")
+  as ("cs-oat", keyFile) withPermissions("0644"))
+
+/**********************/
+
+
 lazy val scalatags = crossProject
   .settings(
     organization := "com.lihaoyi",
@@ -36,7 +50,7 @@ lazy val scalatags = crossProject
     testFrameworks += new TestFramework("utest.runner.Framework"),
     // Sonatype
     version := _root_.scalatags.Constants.version,
-    publishTo := Some("releases"  at "https://oss.sonatype.org/service/local/staging/deploy/maven2"),
+    //bwb  publishTo := Some("releases"  at "https://oss.sonatype.org/service/local/staging/deploy/maven2"),
 
     pomExtra :=
       <url>https://github.com/lihaoyi/scalatags</url>
