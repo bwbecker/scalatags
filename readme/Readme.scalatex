@@ -12,6 +12,16 @@
 @def lnk(txt: String, src: String) = a(txt, href:=src)
 @val perfTests = wd/'scalatags/'shared/'src/'test/'scala/'scalatags/'generic/"PerfTests.scala"
 
+@script
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-27464920-6', 'auto');
+  ga('send', 'pageview');
+
+
 @a(
   href:="https://github.com/lihaoyi/scalatags",
   position.absolute,
@@ -1089,7 +1099,23 @@
         Scalatags is still a work in progress, but I think I've hit most of the pain points I was feeling with the old systems, and hope to continually improve it over time. Pull requests are welcome!
 
 
+  @def pr(s: Int) = a(s, href:="https://github.com/lihaoyi/scalatags/pull/"+s)
   @sect{Changelog}
+    @sect{0.6.7}
+      @ul
+        @li
+         Experimental support for Scala.js
+
+    @sect{0.6.5}
+      @ul
+        @li
+         Merge PRs @pr(131), @pr(162)
+
+    @sect{0.6.4}
+      @ul
+        @li
+         To Scalatex 0.3.7
+
     @sect{0.6.3}
       @ul
         @li
@@ -1170,7 +1196,6 @@
         @li
           Added the flex-box related styles
         @li
-          @def pr(s: Int) = a(s, href:="https://github.com/lihaoyi/scalatags/pull/"+s)
           Merged a bunch of PRs: @pr(105), @pr(103), @pr(95), @pr(94), @pr(88)
     @sect{0.5.2}
       @ul

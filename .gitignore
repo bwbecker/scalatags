@@ -5,7 +5,9 @@ scalatags/js/target/*
 scalatags/jvm/target/*
 project/target/*
 project/project/target/*
+readme/target/*
 .idea/*
 .idea_modules/*
 *.iml
 readme
+scalatags/native/target
